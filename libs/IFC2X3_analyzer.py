@@ -15,11 +15,7 @@ def ifc2x3_analyzer(fname, settings):
         if iterator.initialize():
             while True:
                 shape = iterator.get()
-                matrix = np.array(shape.transformation.matrix.data).reshape(3,4)
-                # faces = np.unique(np.array(shape.geometry.faces))
-                verts = np.array(shape.geometry.verts).reshape(-1,  3)#[faces]
-                #verts = verts - matrix[:, 3]
-                #verts = np.array([matrix[0:3,0:3].T @ v.T for v in verts])
+                verts = np.array(shape.geometry.verts).reshape(-1,  3)
 
                 if min is not None:
                     verts = np.vstack((verts, min))
